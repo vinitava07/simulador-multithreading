@@ -8,7 +8,7 @@ Para rodar o código basta baixar ou clonar o repositório e executar os comando
  `java -cp bin SimuladorModel.Simulador`
 
 ### Linux
-`find src -name "*.java" > sources.txt ` -> `javac -d bin @sources.txt`
+`find src -name "*.java" > sources.txt ` -> `javac -d bin @sources.txt` -> `java -cp bin SimuladorModel.Simulador`
 O propósito é simular como as instruções se comportam com o multithreading a nível de instrução nas arquiteturas. Os arquivos de threads definem as instruções de cada thread, é possível adicionar quantas threads forem necessárias
 mudando no código de cada arquitetura e criando os repsectivos .txt
 
