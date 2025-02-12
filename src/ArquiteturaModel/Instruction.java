@@ -1,13 +1,15 @@
+package src.ArquiteturaModel;
+
 public class Instruction {
-    String inst;    // Nome da instrução
-    String dest;
-    String op1;
-    String op2;
-    int contexto;
-    String codigo; // Alias para compatibilidade com visualizadores
-    int ciclo = 1; // Ciclo restante para a execução
-    int needsToBeAfterId = -1;
-    int id = -1;
+    public String inst;    // Nome da instrução
+    public String dest;
+    public String op1;
+    public String op2;
+    public int contexto;
+    public String codigo; // Alias para compatibilidade com visualizadores
+    public int ciclo = 1; // Ciclo restante para a execução
+    public int needsToBeAfterId = -1;
+    public int id = -1;
 
     // Construtor padrão para instruções vazias
     Instruction() {
@@ -20,7 +22,7 @@ public class Instruction {
     }
 
     // Construtor com parâmetros
-    Instruction(String inst, String dest, String op1, String op2, int contexto) {
+    public Instruction(String inst, String dest, String op1, String op2, int contexto) {
         this.inst = inst;
         this.codigo = inst; // Para compatibilidade com visualizadores
         this.dest = dest;

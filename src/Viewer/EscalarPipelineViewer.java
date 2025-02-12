@@ -1,5 +1,9 @@
+package src.Viewer;
 import java.awt.*;
 import javax.swing.*;
+
+import src.ArquiteturaModel.Instruction;
+
 import java.util.ArrayList;
 
 public class EscalarPipelineViewer extends JFrame {
@@ -43,7 +47,7 @@ public class EscalarPipelineViewer extends JFrame {
         stageLabels = new ArrayList<>();
 
         // Adicionando labels para os estágios
-        for (String stage : stages) {
+        for (@SuppressWarnings("unused") String stage : stages) {
             JLabel label = new JLabel("NOP", SwingConstants.CENTER);
             label.setOpaque(true);
             label.setBackground(Color.LIGHT_GRAY);

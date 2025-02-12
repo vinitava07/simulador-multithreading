@@ -1,7 +1,14 @@
+package src.SimuladorModel;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.ArrayList;
 
+import src.ArquiteturaModel.Instruction;
+import src.EscalarModel.Escalar;
+import src.SuperescalarModel.SuperEscalar;
+import src.Viewer.EscalarPipelineViewer;
+import src.Viewer.SimplePipelineViewer;
+
+import java.util.ArrayList;
 public class Simulador {
 
     public static volatile boolean isPaused = false; // Flag de pausa
@@ -39,7 +46,7 @@ public class Simulador {
                         return;
                     }
                     // Passar a referência da interface principal para a interface superescalar
-                    SimplePipelineVisualizer spv = new SimplePipelineVisualizer(selectedPipeline, viewer);
+                    SimplePipelineViewer spv = new SimplePipelineViewer(selectedPipeline, viewer);
                     spv.setVisible(true);
 
                     // Desabilitar o botão Run principal para evitar múltiplas simulações

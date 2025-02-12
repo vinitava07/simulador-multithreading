@@ -1,12 +1,18 @@
+package src.Viewer;
 import java.awt.*;
 import javax.swing.*;
+
+import src.ArquiteturaModel.Instruction;
+import src.SimuladorModel.Simulador;
+import src.SuperescalarModel.SuperEscalar;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
-public class SimplePipelineVisualizer extends JFrame {
+public class SimplePipelineViewer extends JFrame {
     public int limBoxes = 5;
     private JLabel[] ciclosBoxes = new JLabel[limBoxes];
     private JLabel[][] ufBoxes = new JLabel[4][limBoxes];
@@ -24,7 +30,7 @@ public class SimplePipelineVisualizer extends JFrame {
 
     // Variáveis para armazenar os valores das métricas
 
-    public SimplePipelineVisualizer(SuperEscalar superEscalar, EscalarPipelineViewer mainViewer) {
+    public SimplePipelineViewer(SuperEscalar superEscalar, EscalarPipelineViewer mainViewer) {
         this.superEscalar = superEscalar;
         setTitle("Pipeline Visualizer (Superescalar)");
         setSize(800, 600);
@@ -136,7 +142,7 @@ public class SimplePipelineVisualizer extends JFrame {
                 Simulador.currentWorker = new SwingWorker<Void, Void>() {
                     @Override
                     protected Void doInBackground() throws Exception {
-                        superEscalar.runPipeline(SimplePipelineVisualizer.this, this);
+                        superEscalar.runPipeline(SimplePipelineViewer.this, this);
                         return null;
                     }
 
@@ -155,18 +161,18 @@ public class SimplePipelineVisualizer extends JFrame {
                         try {
                             get(); // Verifica se houve exceções
                             if (!isCancelled()) {
-                                JOptionPane.showMessageDialog(SimplePipelineVisualizer.this,
+                                JOptionPane.showMessageDialog(SimplePipelineViewer.this,
                                         "Simulação (Superescalar) concluída!", "Fim",
                                         JOptionPane.INFORMATION_MESSAGE);
                             }
                         } catch (Exception ex) {
                             if (isCancelled()) {
-                                JOptionPane.showMessageDialog(SimplePipelineVisualizer.this,
+                                JOptionPane.showMessageDialog(SimplePipelineViewer.this,
                                         "Simulação interrompida!", "Interrompida",
                                         JOptionPane.WARNING_MESSAGE);
                             } else {
                                 ex.printStackTrace();
-                                JOptionPane.showMessageDialog(SimplePipelineVisualizer.this,
+                                JOptionPane.showMessageDialog(SimplePipelineViewer.this,
                                         "Erro na simulação!", "Erro",
                                         JOptionPane.ERROR_MESSAGE);
                             }

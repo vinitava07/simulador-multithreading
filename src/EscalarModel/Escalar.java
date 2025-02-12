@@ -1,6 +1,10 @@
+package src.EscalarModel;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+
+import src.ArquiteturaModel.Contexto;
+import src.ArquiteturaModel.Instruction;
 
 public class Escalar {
 
@@ -8,16 +12,16 @@ public class Escalar {
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
 
-    Contexto[] contextos = new Contexto[3];
-    ArrayList<Instruction> imtPipeline = new ArrayList<>();
-    ArrayList<Instruction> bmtPipeline = new ArrayList<>();
-    ArrayList<Instruction> refPipeline = new ArrayList<>(); // Pipeline de Referência
-    int totalInstructionsIMT = 0;
-    int totalInstructionsBMT = 0;
-    int totalInstructionsREF = 0;
-    int blockSize = 3;
+    public Contexto[] contextos = new Contexto[3];
+    public ArrayList<Instruction> imtPipeline = new ArrayList<>();
+    public ArrayList<Instruction> bmtPipeline = new ArrayList<>();
+    public ArrayList<Instruction> refPipeline = new ArrayList<>(); // Pipeline de Referência
+    public int totalInstructionsIMT = 0;
+    public int totalInstructionsBMT = 0;
+    public int totalInstructionsREF = 0;
+    public int blockSize = 3;
 
-    Escalar() {
+    public Escalar() {
         String instruction;
         ArrayList<Instruction> instructions = new ArrayList<>();
         try {

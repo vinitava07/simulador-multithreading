@@ -3,9 +3,12 @@
 
 Para rodar o código basta baixar ou clonar o repositório e executar os comandos: 
 
- `javac Simulador.java` ->
- `java Simulador`
+### Windows: 
+ `javac -d bin src\ArquiteturaModel\*.java src\EscalarModel\*.java src\SimuladorModel\*.java src\SuperescalarModel\*.java src\Viewer\*.java  ` ->
+ `java -cp bin SimuladorModel.Simulador`
 
+### Linux
+`find src -name "*.java" > sources.txt ` -> `javac -d bin @sources.txt`
 O propósito é simular como as instruções se comportam com o multithreading a nível de instrução nas arquiteturas. Os arquivos de threads definem as instruções de cada thread, é possível adicionar quantas threads forem necessárias
 mudando no código de cada arquitetura e criando os repsectivos .txt
 

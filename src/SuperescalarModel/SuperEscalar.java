@@ -1,3 +1,4 @@
+package src.SuperescalarModel;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -5,6 +6,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.SwingWorker;
+
+import src.ArquiteturaModel.Contexto;
+import src.ArquiteturaModel.Instruction;
+import src.SimuladorModel.Simulador;
+import src.Viewer.SimplePipelineViewer;
 
 public class SuperEscalar {
 
@@ -49,7 +55,7 @@ public class SuperEscalar {
      * @param visualizer O visualizador para atualizar o estado do pipeline
      * @param worker     O SwingWorker que está executando a simulação
      */
-    public void runPipeline(SimplePipelineVisualizer visualizer, SwingWorker<?, ?> worker) {
+    public void runPipeline(SimplePipelineViewer visualizer, SwingWorker<?, ?> worker) {
         int totalCycles = 0;
         int executedInstructions = 0;
         int bubbleCycles = 0;
